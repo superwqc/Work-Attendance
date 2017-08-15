@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="vulture:war">
+    <output-path>E:/vulture/target</output-path>
+    <root id="archive" name="ylcommunity.war">
+      <element id="artifact" artifact-name="vulture:war exploded" />
+    </root>
+  </artifact>
+</component>
