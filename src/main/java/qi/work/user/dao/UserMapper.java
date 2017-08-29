@@ -3,13 +3,13 @@ package qi.work.user.dao;
 import qi.work.user.entity.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Long uid);
+    int deleteByPrimaryKey(Long id);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Long uid);
+    User selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(User record);
 

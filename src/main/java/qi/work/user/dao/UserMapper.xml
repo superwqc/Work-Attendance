@@ -2,42 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="qi.work.user.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="qi.work.user.entity.User" >
-    <id column="uid" property="uid" jdbcType="BIGINT" />
-    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
-    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
     <result column="head_image" property="headImage" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    uid, uname, password, mobile, realname, head_image
+    id, username, password, mobile, real_name, head_image
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from user
-    where uid = #{uid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from user
-    where uid = #{uid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="qi.work.user.entity.User" >
-    insert into user (uid, uname, password, 
-      mobile, realname, head_image
+    insert into user (id, username, password, 
+      mobile, real_name, head_image
       )
-    values (#{uid,jdbcType=BIGINT}, #{uname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{mobile,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{headImage,jdbcType=VARCHAR}
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{headImage,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="qi.work.user.entity.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="uid != null" >
-        uid,
+      <if test="id != null" >
+        id,
       </if>
-      <if test="uname != null" >
-        uname,
+      <if test="username != null" >
+        username,
       </if>
       <if test="password != null" >
         password,
@@ -45,19 +45,19 @@
       <if test="mobile != null" >
         mobile,
       </if>
-      <if test="realname != null" >
-        realname,
+      <if test="realName != null" >
+        real_name,
       </if>
       <if test="headImage != null" >
         head_image,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="uid != null" >
-        #{uid,jdbcType=BIGINT},
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
       </if>
-      <if test="uname != null" >
-        #{uname,jdbcType=VARCHAR},
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
@@ -65,8 +65,8 @@
       <if test="mobile != null" >
         #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="realname != null" >
-        #{realname,jdbcType=VARCHAR},
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
       </if>
       <if test="headImage != null" >
         #{headImage,jdbcType=VARCHAR},
@@ -76,8 +76,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="qi.work.user.entity.User" >
     update user
     <set >
-      <if test="uname != null" >
-        uname = #{uname,jdbcType=VARCHAR},
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
@@ -85,22 +85,22 @@
       <if test="mobile != null" >
         mobile = #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="realname != null" >
-        realname = #{realname,jdbcType=VARCHAR},
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
       </if>
       <if test="headImage != null" >
         head_image = #{headImage,jdbcType=VARCHAR},
       </if>
     </set>
-    where uid = #{uid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="qi.work.user.entity.User" >
     update user
-    set uname = #{uname,jdbcType=VARCHAR},
+    set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
-      realname = #{realname,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
       head_image = #{headImage,jdbcType=VARCHAR}
-    where uid = #{uid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -1,32 +1,32 @@
 package qi.work.user.entity;
 
 public class User {
-    private Long uid;
+    private Long id;
 
-    private String uname;
+    private String username;
 
     private String password;
 
     private String mobile;
 
-    private String realname;
+    private String realName;
 
     private String headImage;
 
-    public Long getUid() {
-        return uid;
+    public Long getId() {
+        return id;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getUname() {
-        return uname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname == null ? null : uname.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -45,12 +45,12 @@ public class User {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public String getRealname() {
-        return realname;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setRealname(String realname) {
-        this.realname = realname == null ? null : realname.trim();
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
     }
 
     public String getHeadImage() {
