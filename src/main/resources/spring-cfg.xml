@@ -27,7 +27,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="qi.work.*.dao"/>
+        <property name="basePackage" value="com.coder520.*.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
@@ -42,7 +42,7 @@
           destroy-method="close" init-method="init">
         <property name="url" value="${jdbc_url}"/>
         <property name="username" value="${jdbc_username}"/>
-        <property name="password" value="1234"/>
+        <property name="password" value="${jdbc_password}"/>
         <!-- 初始化连接大小 -->
         <property name="initialSize" value="0"/>
         <!-- 连接池最大使用连接数量 -->
@@ -76,24 +76,23 @@
 
 
     <!--流程引擎配置项-->
-    <bean  id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
-        <!--数据源 和系统同一个-->
+    <!--<bean  id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+        &lt;!&ndash;数据源 和系统同一个&ndash;&gt;
         <property name="dataSource" ref="dataSource"/>
         <property name="transactionManager" ref="transactionManager" />
-        <!--更新数据库表 如果没有 则创建-->
+        &lt;!&ndash;更新数据库表 如果没有 则创建&ndash;&gt;
         <property name="databaseSchemaUpdate" value="true" />
-        <!-- 是否启动jobExecutor -->
+        &lt;!&ndash; 是否启动jobExecutor &ndash;&gt;
         <property name="jobExecutorActivate" value="false" />
         <property name="activityFontName" value="宋体"/>
         <property name="labelFontName" value="宋体"/>
-
-        <!--自动部署流程-->
-       <!-- <property name="deploymentResources">
+        &lt;!&ndash;自动部署流程&ndash;&gt;
+        <property name="deploymentResources">
             <list>
                 <value>classpath*:workflow/*.bpmn</value>
             </list>
-        </property>-->
-    </bean>
+        </property>
+    </bean>-->
 
     <!--流程引擎-->
     <bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
@@ -113,5 +112,5 @@
     <!-- 工作流身份识别服务 -->
     <bean id="IdentityService" factory-bean="processEngine" factory-method="getIdentityService" />
     <!--<import resource="spring-job.xml"/>-->
-
+    <!--<import resource="spring-shiro.xml"/>-->
 </beans>
