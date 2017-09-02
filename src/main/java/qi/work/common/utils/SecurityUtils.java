@@ -7,11 +7,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by Administrator.
+ * Created by Qi.
  */
 public class SecurityUtils {
 
-    public String encrptyPassworrd(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public static String encrptyPassworrd(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 
         MessageDigest md5=MessageDigest.getInstance("MD5");
         BASE64Encoder base64Encoder=new BASE64Encoder();
@@ -19,7 +19,7 @@ public class SecurityUtils {
         return  result;
     }
 
-    public boolean checkPassword(String inputPwd,String dbPwd ) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public static  boolean checkPassword(String inputPwd,String dbPwd ) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         String result=encrptyPassworrd(inputPwd);
         if (result.equals(dbPwd)){
             return true;
