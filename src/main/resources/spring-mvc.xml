@@ -29,6 +29,7 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
     <!--包扫描-->
     <context:component-scan base-package="qi.work.*.controller">
 
@@ -55,18 +56,24 @@
             </props>
         </property>
     </bean>
+
+    <!--捕获程序发生的异常-->
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--定义默认的异常处理页面，当该异常类型的注册时使用-->
+        <property name="defaultErrorView" value="error"></property>
+        <!--定义异常处理页面用来获取异常信息的变量名，默认为exception-->
+        <property name="exceptionAttribute" value="exception"></property>
+        <!--定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为唯一值-->
         <property name="exceptionMappings">
             <props>
                 <prop key="org.apache.shiro.authz.UnauthorizedException">403</prop>
             </props>
         </property>
     </bean>
+
     <bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="suffix" value=".vm"/>
         <property name="contentType" value="text/html;charset=utf-8"/>
         <property name="dateToolAttribute" value="date"/><!--日期函数名称-->
     </bean>
-
-
 </beans>
