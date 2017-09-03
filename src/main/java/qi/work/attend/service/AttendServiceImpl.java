@@ -7,10 +7,13 @@ import org.springframework.stereotype.Service;
 import qi.work.attend.dao.AttendMapper;
 import qi.work.attend.entity.Attend;
 
+import java.text.SimpleDateFormat;
 
 
 @Service("attendServiceImpl")
 public class AttendServiceImpl implements AttendService{
+
+    SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
 
 
     private Log log= LogFactory.getLog(AttendServiceImpl.class);
